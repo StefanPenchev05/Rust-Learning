@@ -16,6 +16,7 @@ fn main() {
     let secret_number = rand::thread_rng().gen_range(1..=10);
 
     loop {
+        number.clear();
         println!("Please enter your number: ");
 
         // using stdin for getting the input data from user
@@ -25,6 +26,8 @@ fn main() {
         stdin()
             .read_line(&mut number)
             .expect("Faild to read user input");
+
+        println!("{number}");
 
         let guess: u32 = match number.trim().parse(){
             Ok(number) => number,
