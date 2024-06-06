@@ -1,3 +1,6 @@
+// The #[derive(Debug)] annotation automatically adds the Debug trait to the Rectangle struct.
+// The Debug trait enables formatting of the struct for output, typically used for debugging purposes.
+// With this trait, instances of the struct can be printed using the {:?} or {:#?} format specifiers.
 #[derive(Debug)]
 struct Rectangle {
     width: u32,
@@ -30,6 +33,11 @@ fn main() {
         "The area of the rectangle is {} square pixels.",
         area_of_rectangle(RectangleDefinition::Rectangle(rec1))
     );
+
+    // Using the dbg! macro, which is error message - stderr
+    let rec2 = build_rectangle_struct(100, 100);
+    dbg!(&rec2);
+    
 }
 
 // This function calculates the area of a rectangle.
