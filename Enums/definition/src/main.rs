@@ -65,14 +65,24 @@ fn main() {
     // Well we will use unwrap()
 
     let rand_num = Option::Some(123);
-    println!("{}", rand_num.unwrap()) 
-    
+    println!("{}", rand_num.unwrap());
+
+    // `if let` is a syntax sugar for a combination of `match` and `if`.
+    // It allows you to match a single pattern and then execute code based on whether it matches or not.
+
+    let some_number = Option::Some(21);
+
+    // We can use `if let` to check if `some_number` is `Some(i32)`. If it is, it executes the block of code.
+
+    if let Some(x) = some_number{
+        // If `some_number` is `Some(i32)`, `x` is bound to the value inside the `Some`.
+        println!("some_number is: {}", x);
+    }
 }
 
-
-fn plus_one(some: Option<i32>) -> Option<i32>{
+fn plus_one(some: Option<i32>) -> Option<i32> {
     match some {
         None => None,
-        Some(x) => Some(x + 1)
+        Some(x) => Some(x + 1),
     }
 }
