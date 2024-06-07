@@ -52,10 +52,27 @@ fn main() {
     assert_eq!("::1".parse(), Ok(localhost_v6));
     assert_eq!(localhost_v4.is_ipv6(), false);
 
-
     // Optional values
     let _some_number = Some(32);
     let _some_char = Some('c');
 
     let _absent_number: Option<i32> = None;
+
+    let five = Option::Some(5);
+    plus_one(five);
+
+    // But how to get the value of Option, since we can't do operations on Option<T>
+    // Well we will use unwrap()
+
+    let rand_num = Option::Some(123);
+    println!("{}", rand_num.unwrap()) 
+    
+}
+
+
+fn plus_one(some: Option<i32>) -> Option<i32>{
+    match some {
+        None => None,
+        Some(x) => Some(x + 1)
+    }
 }
