@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello Server</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        .message {
+            border: 1px solid #333;
+            padding: 20px;
+            margin: 20px;
+            background-color: #fff;
+            color: #333;
+            text-align: center;
+        }
+
+        ul {
+            padding: 0;
+            list-style-type: none;
+        }
+
+        li {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        li:last-child {
+            border-bottom: none;
+        }
+
+        .watch{
+            display: flex;
+        }
+
+        #time{
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="message">This message is from the server</h1>
+    <ul>
+        <li>Learn Rust</li>
+        <li>Rust is so cool!</li>
+    </ul>
+    <div class="watch">
+        <p>Time:</p>
+        <p id="time"></p>
+    </div>
+
+    <script>
+        const timePara = document.getElementById("time");
+        updateTime();
+        function updateTime(){
+            const now = new Date();
+
+            const hourse = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const seconds = now.getSeconds().toString().padStart(2, '0');
+            timePara.textContent = `${hourse}:${minutes}:${seconds}`;
+        }
+
+        setInterval(updateTime, 1000);
+    </script>
+</body>
+</html>
