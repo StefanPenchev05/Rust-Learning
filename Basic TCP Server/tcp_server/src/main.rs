@@ -23,6 +23,7 @@ fn main() {
     }
 }
 
+
 fn handle_connection(mut stream: TcpStream) -> Result<(), Box<dyn std::error::Error>> {
     let buf_reader = BufReader::new(&mut stream);
     let request_line = buf_reader.lines().next().unwrap().unwrap();
