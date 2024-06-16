@@ -22,27 +22,29 @@ struct Point(i32, i32, i32);
 fn main() {
     let user1: User = build_user(
         String::from("penchev.stefan@icloud.com"),
-        String::from("StefanPenchev"),
+        String::from("StefanPenchev")
     );
 
     print_user_details(&user1);
 
-    let user2: User = copy_user_with_different_email(user1, String::from("petya_pencheva@gmail.com"));
+    let user2: User = copy_user_with_different_email(
+        user1,
+        String::from("petya_pencheva@gmail.com")
+    );
     print_user_details(&user2);
 
-    let origin = Point(0,0,0);
+    let origin = Point(0, 0, 0);
     println!("The point is at coordinates ({}, {}, {})", origin.0, origin.1, origin.2);
-
 }
 
 // Function to build a new user
 // Takes email and username as parameters and returns a User struct
 fn build_user(email: String, username: String) -> User {
     User {
-        active: true, 
-        username, 
-        email, 
-        age: 30, 
+        active: true,
+        username,
+        email,
+        age: 30,
     }
 }
 
@@ -62,7 +64,7 @@ fn print_user_details(user: &User) {
     // Print the user details
     println!("User details:");
     println!("Email: {}", user.email);
-    println!("Username: {}", user.username); 
-    println!("Active: {}", user.active); 
+    println!("Username: {}", user.username);
+    println!("Active: {}", user.active);
     println!("Age: {}", user.age);
 }
