@@ -28,13 +28,9 @@ impl Rectangle {
 impl Guess {
     fn new(value: i32) -> Self {
         if value < 1 {
-            panic!(
-                "Guess value must be greater than or equal to 1, got {value}."
-            );
+            panic!("Guess value must be greater than or equal to 1, got {value}.");
         } else if value > 100 {
-            panic!(
-                "Guess value must be less than or equal to 100, got {value}."
-            );
+            panic!("Guess value must be less than or equal to 100, got {value}.");
         }
 
         Self { value }
@@ -93,7 +89,6 @@ mod tests {
         Guess::new(200);
     }
 
-
     #[test]
     #[should_panic(expected = "value must be greater than or equal to 1")]
     fn less_than_1() {
@@ -101,11 +96,7 @@ mod tests {
     }
 
     #[test]
-    fn two_plus_two() -> Result<(), String>{
-        if 2 + 2 == 4 {
-            Ok(())
-        }else {
-            Err(String::from("two plus two does not make 5"))
-        }
+    fn two_plus_two() -> Result<(), String> {
+        if 2 + 2 == 4 { Ok(()) } else { Err(String::from("two plus two does not make 5")) }
     }
 }
