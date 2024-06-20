@@ -8,6 +8,9 @@ pub async fn create_user(user: web::Json<User>, db: web::Data<Database>) -> impl
     let user = user.into_inner();
     match user_repository::insert_user(&db, user).await {
         Ok(_) => HttpResponse::Ok().body("User created successfully"),
-        Err(e) => HttpResponse::InternalServerError().body(format!("Failed to create user: {}", e)),
+        Err(e) => match e.to_string().as_str() {
+            "Email already exists" => HttpResponse::BadRequest().body("Email already exists"),
+            _ => HttpResponse::InternalServerError().body(format!("Failed to create user: {}", e)),
+        },
     }
 }
