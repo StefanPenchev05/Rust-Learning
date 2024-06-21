@@ -1,27 +1,27 @@
 import React from "react";
 
-type Text =
+type TextProps =
   | {
       TextStyle: "head" | "para";
       text: string;
       parentDivStyle?: string;
-      style?: string;
+      className?: string;
     }
   | {
       TextStyle: "custom" | undefined;
       text: string;
       parentDivStyle?: string;
-      style: string;
+      className: string;
     };
 
-const Text: React.FC<Text> = ({ ...args }) => {
+const Text: React.FC<TextProps> = ({ ...args }) => {
   const style: string = [
     {
-      head: "text-2xl font-bold",
-      para: "text-base",
-      custom: args.style,
+      head: "text-lg md:text-2xl font-bold",
+      para: "text-sm md:text-base",
+      custom: args.className,
     },
-  ][0][args.TextStyle == undefined ? "para" : args.TextStyle] as string;
+  ][0][args.TextStyle === undefined ? "para" : args.TextStyle] as string;
 
   return (
     <div className={args.parentDivStyle}>

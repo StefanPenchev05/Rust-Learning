@@ -1,11 +1,11 @@
 import React, { ReactNode } from 'react'
 import NavBar from '../NavBar'
 
-interface Layout{
+interface LayoutProps {
     children: ReactNode
 }
 
-const Layout:React.FC<Layout> = ({children}) => {
+const Layout:React.FC<LayoutProps> = ({children}) => {
   return (
     <div className=''>
         <header>

@@ -1,20 +1,21 @@
 import React, { ReactNode } from "react";
 
-interface List {
+interface ListProps {
   position: "horizontal" | "vertical";
   children: ReactNode;
+  parentDivStyle?: string
 }
 
-const List: React.FC<List> = ({ position, children }) => {
-  const style:string = [
+const List: React.FC<ListProps> = ({ position, children, parentDivStyle }) => {
+  const itemsPosition:string = [
     {
-      horizontal: "flex flex-row justify-between items-center",
-      vertical: "flex flex-col justify-between items-center",
+      horizontal: "flex-row",
+      vertical: "flex-col",
     },
-  ][0][position];
+  ][0][position] as string;
 
   return (
-    <div className={style}>
+    <div className={`flex ${itemsPosition} items-center ${parentDivStyle}`}>
       {children}
     </div>
   );
