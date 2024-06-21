@@ -1,31 +1,30 @@
-import React from "react";
+import React, { ReactNode } from "react";
 
-type TextProps =
-  | {
-      TextStyle: "head" | "para";
-      text: string;
-      parentDivStyle?: string;
-      className?: string;
-    }
-  | {
-      TextStyle: "custom" | undefined;
-      text: string;
-      parentDivStyle?: string;
-      className: string;
-    };
-
-const Text: React.FC<TextProps> = ({ ...args }) => {
+type TextProps = {
+  TextStyle?: "head" | "head-2" | "head-3" | "para" | "custom";
+  children: ReactNode;
+  parentDivStyle?: string;
+  className?: string;
+};
+const Text: React.FC<TextProps> = ({
+  TextStyle,
+  children,
+  parentDivStyle,
+  className,
+}) => {
   const style: string = [
     {
       head: "text-lg md:text-2xl font-bold",
+      "head-2": "text-xl md:text-2xl font-extrabold",
+      "head-3": "text-lg md:text-3xl font-extrabold",
       para: "text-sm md:text-base",
-      custom: args.className,
+      custom: className,
     },
-  ][0][args.TextStyle === undefined ? "para" : args.TextStyle] as string;
+  ][0][TextStyle === undefined ? "para" : TextStyle] as string;
 
   return (
-    <div className={args.parentDivStyle}>
-      <p className={style}>{args.text}</p>
+    <div className={parentDivStyle}>
+      <p className={style}>{children}</p>
     </div>
   );
 };

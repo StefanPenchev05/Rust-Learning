@@ -14,10 +14,10 @@ function NavBar() {
 
   return (
     <nav className="flex flex-col md:flex-row md:justify-between justify-center items-center w-full md:p-4 p-6 border-b-4 border-b-black shadow-lg">
-      <Text TextStyle={"head"} text="Actix with React" />
+      <Text TextStyle={"head"}>Actix with React</Text>
       <List
         position={"horizontal"}
-        parentDivStyle={"justify-center md:space-x-24 my-2"}
+        parentDivStyle={"md:space-x-24 my-2 space-x-8"}
       >
         <a
           href="https://instagram.com/_stefan.penchev_/"
@@ -45,11 +45,12 @@ function NavBar() {
 
       <Text
         TextStyle={"custom"}
-        text="Design By Stefan Penchev"
         className={
           "animate-reveal overflow-hidden whitespace-nowrap max-w-max italic"
         }
-      />
+      >
+        Design By Stefan Penchev
+      </Text>
     </nav>
   );
 }

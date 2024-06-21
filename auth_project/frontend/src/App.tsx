@@ -1,26 +1,24 @@
-import React from 'react';
-import './App.css';
-import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
-import Layout from './components/Login/Layout';
-import Login from './page/Login';
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import Layout from "./components/Login/Layout";
+import Login from "./page/Login";
 
 function App() {
   return (
     <Router>
       <div className="App">
         <Routes>
-          <Route 
-            path='/login' 
+          <Route
+            path="/login"
             element={
               <Layout>
-                <Login/>
+                <Login />
               </Layout>
-          }>
-
-          </Route>
-          <Route path='/register' element={NaN}></Route>
+            }
+          />
+          <Route path="/register" element={NaN}></Route>
+          <Route path="*" element={<Navigate to="/login" />} />
         </Routes>
-     </div>
+      </div>
     </Router>
   );
 }

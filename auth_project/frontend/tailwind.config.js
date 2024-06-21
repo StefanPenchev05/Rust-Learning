@@ -12,6 +12,9 @@ module.exports = {
       animation: {
         reveal: 'reveal 2s linear forwards',
       },
+      flexGrow: {
+        '5': '5'
+      }
     },
   },
   plugins: [],
